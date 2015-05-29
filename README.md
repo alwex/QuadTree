@@ -50,7 +50,16 @@ quadTree.getAllZones(zoneList);
 shapeRenderer.setProjectionMatrix(camera.combined);
 shapeRenderer.begin(ShapeType.Line);  
 for (QuadRectangle r : zoneList) {
-    shapeRenderer.rect(z.x, z.y, z.width, z.height, Color.GREEN, Color.GREEN, Color.GREEN, Color.GREEN);
+    shapeRenderer.rect(
+        z.x, 
+        z.y, 
+        z.width, 
+        z.height, 
+        Color.GREEN, 
+        Color.GREEN, 
+        Color.GREEN, 
+        Color.GREEN
+    );
 }
 shapeRenderer.end();
 ```

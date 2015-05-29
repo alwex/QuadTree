@@ -18,6 +18,7 @@ Entity e2 = new Entity();
 Entity e3 = new Entity();
 Entity e4 = new Entity();
 Entity e5 = new Entity();
+Entity e6 = new Entity();
 
 // push entities to the spatial world
 // we defined some rectangle representing the boudaries
@@ -28,10 +29,28 @@ quadTree.insert(new QuadRectangle(4, 4, 1, 1), e3);
 quadTree.insert(new QuadRectangle(6, 6, 1, 1), e4);
 quadTree.insert(new QuadRectangle(4, 4, 2, 2), e5);
 
-// this QuadTree implementation accept some float
+// YES! this QuadTree implementation accept floats
 quadTree.insert(new QuadRectangle(0.5f, 6.5f, 0.5f, 0.5f), e6);
 
 // retrieve the matching element within a defined zone
 ArrayList<Entity> list = new ArrayList<Entity>();
 quadTree.getElements(list, new QuadRectangle(2, 2, 1, 1));
+```
+
+Debug
+----
+
+If you need to debug you QuadTree you can retrieve the different zones created on the fly when element are inserted
+
+```java
+ArrayList<QuadRectangle> zoneList = new ArrayList<QuadRectangle>();
+quadTree.getAllZones(zoneList);
+
+// display the zones (Libgdx example)
+shapeRenderer.setProjectionMatrix(camera.combined);
+shapeRenderer.begin(ShapeType.Line);  
+for (QuadRectangle r : zoneList) {
+    shapeRenderer.rect(z.x, z.y, z.width, z.height, Color.GREEN, Color.GREEN, Color.GREEN, Color.GREEN);
+}
+shapeRenderer.end();
 ```

@@ -13,12 +13,13 @@ public class QuadTree<T> {
     // current rectangle zone
     private QuadRectangle zone;
 
+    // GLOBAL CONFIGRATION
     // if this is reached,
     // the zone is subdivised
-    static final int maxItemByNode = 1;
+    public static int maxItemByNode = 5;
+    public static int maxLevel = 10;
 
     int level;
-    static final int maxLevel = 3;
 
     // the four sub regions,
     // may be null if not needed

@@ -13,6 +13,10 @@ public class QuadTreeTest {
 
     @Test
     public void testInsertElements() {
+
+        QuadTree.maxItemByNode = 1;
+        QuadTree.maxLevel = 2;
+
         QuadTree<QuadRectangle> quadTree = new QuadTree<QuadRectangle>(new QuadRectangle(0, 0, 10, 10), 0);
 
         QuadRectangle r1 = new QuadRectangle(1, 1, 1, 1);

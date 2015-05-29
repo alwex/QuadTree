@@ -9,6 +9,10 @@ Usage
 initialize the world with a 10 by 10 dimension starting at point (0,0)
 
 ```java
+// configure the QuadTree
+QuadTree.maxItemByNode = 20;
+QuadTree.maxLevel = 10;
+        
 // init the spatial world starting at level 0 (root node)
 QuadTree<QuadRectangle> quadTree = new QuadTree<Entity>(new QuadRectangle(0, 0, 10, 10), 0);
 

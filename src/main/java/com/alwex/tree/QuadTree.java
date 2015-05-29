@@ -73,14 +73,14 @@ public class QuadTree<T> {
 
         regions[REGION_NW] = new QuadTree<T>(new QuadRectangle(
                 zone.x,
-                zone.height / 2,
+                zone.y + zone.height / 2,
                 newWidth,
                 newHeight
         ), newLevel);
 
         regions[REGION_NE] = new QuadTree<T>(new QuadRectangle(
-                zone.width / 2,
-                zone.height / 2,
+                zone.x + zone.width / 2,
+                zone.y + zone.height / 2,
                 newWidth,
                 newHeight
         ), newLevel);
@@ -93,7 +93,7 @@ public class QuadTree<T> {
         ), newLevel);
 
         regions[REGION_SE] = new QuadTree<T>(new QuadRectangle(
-                zone.width / 2,
+                zone.x + zone.width / 2,
                 zone.y,
                 newWidth,
                 newHeight

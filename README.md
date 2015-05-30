@@ -3,6 +3,8 @@ A simple and efficient Java QuadTree implementation
 
 Very usefull and for game development this QuadTree implementation will help you create an efficient collision detection System.
 
+![](http://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Point_quadtree.svg/300px-Point_quadtree.svg.png)
+
 Usage
 ----
 

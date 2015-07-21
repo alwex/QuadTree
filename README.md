@@ -55,7 +55,7 @@ quadTree.getAllZones(zoneList);
 // display the zones (Libgdx example)
 shapeRenderer.setProjectionMatrix(camera.combined);
 shapeRenderer.begin(ShapeType.Line);  
-for (QuadRectangle r : zoneList) {
+for (QuadRectangle z : zoneList) {
     shapeRenderer.rect(
         z.x, 
         z.y, 

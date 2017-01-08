@@ -14,12 +14,11 @@ public class QuadTreeTest {
     @Test
     public void testInsertElements() {
 
-//        long startTime;
-//        long endTime;
-//        int maxTest = 1000000;
-//
+        long startTime;
+        long endTime;
+        int maxTest = 1000000;
+
 //        startTime = System.currentTimeMillis();
-//
 //        for (int i = 0; i <= maxTest; i++) {
 
             QuadTree.maxItemByNode = 1;
@@ -68,7 +67,6 @@ public class QuadTreeTest {
 
 //        }
 //        endTime = System.currentTimeMillis();
-
 //        System.out.println("Total execution time hoho: " + (endTime - startTime) + "ms");
     }
 

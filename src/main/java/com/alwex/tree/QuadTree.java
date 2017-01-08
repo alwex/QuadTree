@@ -41,22 +41,27 @@ public class QuadTree<T> {
         return this.zone;
     }
 
-    private int findRegion(QuadRectangle r) {
+    private int findRegion(QuadRectangle r, boolean split) {
         int region = REGION_SELF;
         if (nodes.size() >= maxItemByNode && this.level < maxLevel) {
-            if (regions == null) {
+            // we don't want to split if we just need to retrieve
+            // the region, not inserting an element
+            if (regions == null && split) {
                 // then create the subregions
                 this.split();
             }
 
-            if (regions[REGION_NW].getZone().contains(r)) {
-                region = REGION_NW;
-            } else if (regions[REGION_NE].getZone().contains(r)) {
-                region = REGION_NE;
-            } else if (regions[REGION_SW].getZone().contains(r)) {
-                region = REGION_SW;
-            } else if (regions[REGION_SE].getZone().contains(r)) {
-                region = REGION_SE;
+            // can be null if not splitted
+            if (regions != null) {
+                if (regions[REGION_NW].getZone().contains(r)) {
+                    region = REGION_NW;
+                } else if (regions[REGION_NE].getZone().contains(r)) {
+                    region = REGION_NE;
+                } else if (regions[REGION_SW].getZone().contains(r)) {
+                    region = REGION_SW;
+                } else if (regions[REGION_SE].getZone().contains(r)) {
+                    region = REGION_SE;
+                }
             }
         }
 
@@ -101,7 +106,7 @@ public class QuadTree<T> {
     }
 
     public void insert(QuadRectangle r, T element) {
-        int region = this.findRegion(r);
+        int region = this.findRegion(r, true);
         if (region == REGION_SELF || this.level == maxLevel) {
             nodes.add(new QuadNode<T>(r, element));
             return;
@@ -126,7 +131,7 @@ public class QuadTree<T> {
     }
 
     public ArrayList<T> getElements(ArrayList<T> list, QuadRectangle r) {
-        int region = this.findRegion(r);
+        int region = this.findRegion(r, false);
 
         int length = nodes.size();
         for (int i = 0; i < length; i++) {

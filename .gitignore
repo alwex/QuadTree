@@ -10,3 +10,6 @@ gradle-app.setting
 QuadTree.iml
 QuadTree.ipr
 QuadTree.iws
+gradlew
+gradlew.bat
+gradle/

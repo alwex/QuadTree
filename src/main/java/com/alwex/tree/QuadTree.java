@@ -112,10 +112,13 @@ public class QuadTree<T> {
         if (nodes.size() >= maxItemByNode && this.level < maxLevel) {
             // redispatch the elements
             ArrayList<QuadNode<T>> tempNodes = new ArrayList<QuadNode<T>>();
-            for (QuadNode<T> node : nodes) {
-                tempNodes.add(node);
+            int length = nodes.size();
+            for (int i = 0; i < length; i++) {
+                tempNodes.add(nodes.get(i));
+
             }
             nodes.clear();
+
             for (QuadNode<T> node : tempNodes) {
                 this.insert(node.r, node.element);
             }
@@ -125,8 +128,9 @@ public class QuadTree<T> {
     public ArrayList<T> getElements(ArrayList<T> list, QuadRectangle r) {
         int region = this.findRegion(r);
 
-        for (QuadNode<T> node : nodes) {
-            list.add(node.element);
+        int length = nodes.size();
+        for (int i = 0; i < length; i++) {
+            list.add(nodes.get(i).element);
         }
 
         if (region != REGION_SELF) {
@@ -147,8 +151,9 @@ public class QuadTree<T> {
         }
 
         if (!firstCall) {
-            for (QuadNode<T> node : nodes) {
-                list.add(node.element);
+            int length = nodes.size();
+            for (int i = 0; i < length; i++) {
+                list.add(nodes.get(i).element);
             }
         }
 

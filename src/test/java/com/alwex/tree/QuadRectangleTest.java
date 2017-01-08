@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Created by samsung on 28/05/2015.
+ * Created by aguiet on 28/05/2015.
  */
 public class QuadRectangleTest {
 

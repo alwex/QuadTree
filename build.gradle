@@ -1,7 +1,13 @@
 apply plugin: 'java'
+apply plugin: 'idea'
 
-sourceCompatibility = 1.5
-version = 'v1.1'
+sourceCompatibility = 1.8
+version = 'v1.2'
+
+sourceSets {
+    main.java.srcDir "src/main/java"
+    test.java.srcDir "src/test/java"
+}
 
 repositories {
     mavenCentral()

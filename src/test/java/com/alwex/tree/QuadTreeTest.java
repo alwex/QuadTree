@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 /**
- * Created by samsung on 28/05/2015.
+ * Created by aguiet on 28/05/2015.
  */
 public class QuadTreeTest {
 
@@ -56,6 +56,31 @@ public class QuadTreeTest {
         ArrayList<QuadRectangle> zoneList = new ArrayList<QuadRectangle>();
         quadTree.getAllZones(zoneList);
 
-        assertTrue(zoneList.size() == 9);
+        assertEquals(zoneList.size(), 9);
+    }
+
+    @Test
+    public void testIntersectElementsAreInserted() {
+        QuadTree.maxItemByNode = 1;
+        QuadTree.maxLevel = 2;
+
+        QuadTree<QuadRectangle> quadTree = new QuadTree<QuadRectangle>(new QuadRectangle(0, 0, 10, 10), 0);
+
+        QuadRectangle r1 = new QuadRectangle(1, 1, 1, 1);
+        QuadRectangle r2 = new QuadRectangle(2, 2, 1, 1);
+
+        quadTree.insert(r1, r1);
+        quadTree.insert(r2, r2);
+
+        ArrayList<QuadRectangle> list = new ArrayList<QuadRectangle>();
+        quadTree.getElements(list, new QuadRectangle(2, 2, 1, 1));
+
+        assertTrue(list.size() == 2);
+
+
+        QuadRectangle r3 = new QuadRectangle(11, 11, 1, 1);
+
+        list = new ArrayList<QuadRectangle>();
+        quadTree.getElements(list, new QuadRectangle(2, 2, 1, 1));
     }
 }

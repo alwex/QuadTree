@@ -1,7 +1,7 @@
 package com.alwex.tree;
 
 /**
- * Created by samsung on 28/05/2015.
+ * Created by aguiet on 28/05/2015.
  */
 public class QuadRectangle {
     public float x, y, width, height;

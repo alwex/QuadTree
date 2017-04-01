@@ -1,3 +1,6 @@
+plugins {
+    id "com.jfrog.bintray" version "1.7.3"
+}
 apply plugin: 'java'
 apply plugin: 'maven-publish'
 apply plugin: 'idea'
@@ -18,11 +21,31 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
 
+bintray {
+    user = 'alwex'
+    key = property('key')
+    key = 'ae8dc4ea304b8140096d1c83cfacd074a03a050f'
+    publications = ['MavenPublish']
+    pkg {
+        repo = 'maven'
+        name = 'QuadTree'
+        licenses = ['MIT']
+        vcsUrl = 'https://github.com/alwex/QuadTree.git'
+        version {
+            name = '1.3.0'
+            desc = 'QuadTree'
+            released  = new Date()
+        }
+    }
+}
+
 publishing {
-    repositories {
-        maven {
-            // change to point to your repo, e.g. http://my.org/repo
-            url "$buildDir/repo"
+    publications {
+        MavenPublish(MavenPublication) {
+            from components.java
+            groupId 'org.alwex'
+            artifactId 'quad-tree'
+            version '1.3.0'
         }
     }
 }

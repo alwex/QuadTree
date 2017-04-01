@@ -13,3 +13,4 @@ QuadTree.iws
 gradlew
 gradlew.bat
 gradle/
+bintray.key

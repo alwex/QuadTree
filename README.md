@@ -1,12 +1,36 @@
-A simple and efficient Java QuadTree implementation
-======
+# A simple and efficient Java QuadTree implementation
 
 Very usefull and for game development this QuadTree implementation will help you create an efficient collision detection System.
 
 ![](http://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Point_quadtree.svg/300px-Point_quadtree.svg.png)
 
-Usage
-----
+## Installation
+
+### Maven
+
+```xml
+<dependency>
+  <groupId>org.alwex</groupId>
+  <artifactId>quad-tree</artifactId>
+  <version>1.3.0</version>
+  <type>pom</type>
+</dependency>
+```
+
+### Gradle
+
+```
+compile 'org.alwex:quad-tree:1.3.0'
+```
+
+### Ivy
+```xml
+<dependency org='org.alwex' name='quad-tree' rev='1.3.0'>
+  <artifact name='quad-tree' ext='pom' ></artifact>
+</dependency>
+```
+
+## Usage
 
 initialize the world with a 10 by 10 dimension starting at point (0,0)
 
@@ -43,8 +67,7 @@ ArrayList<Entity> list = new ArrayList<Entity>();
 quadTree.getElements(list, new QuadRectangle(2, 2, 1, 1));
 ```
 
-Debug
-----
+## Debug
 
 If you need to debug you QuadTree you can retrieve the different zones created on the fly when element are inserted
 

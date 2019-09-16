@@ -40,7 +40,7 @@ QuadTree.maxItemByNode = 20;
 QuadTree.maxLevel = 10;
         
 // init the spatial world starting at level 0 (root node)
-QuadTree<QuadRectangle> quadTree = new QuadTree<Entity>(new QuadRectangle(0, 0, 10, 10), 0);
+QuadTree<Entity> quadTree = new QuadTree<Entity>(new QuadRectangle(0, 0, 10, 10), 0);
 
 // create entities
 Entity e1 = new Entity();
